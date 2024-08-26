@@ -11,7 +11,7 @@ class AddContactPage extends StatelessWidget {
 
   Future<void> saveContact(BuildContext context) async {
     // For Android emulator, use 10.0.2.2 instead of localhost
-    final String apiUrl = 'http://10.0.2.2:8000/contacts';
+    final String apiUrl = 'http://localhost:8000/contacts';
     // For iOS simulator or physical devices on the same network, use your computer's IP address
     // final String apiUrl = 'http://192.168.1.100:8000/contacts';
 

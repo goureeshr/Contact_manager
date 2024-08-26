@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import DB_connection from './db';
+import Contact from './schema';
 
 const app = express();
 const PORT = 8000;
@@ -58,6 +60,17 @@ app.get('/contacts', (req, res) => {
   console.log("Returning all contacts:", contactsData);
   res.json(contactsData);
 });
+
+// Get all contacts
+app.get('/contacts', async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 // Start the server
 app.listen(PORT, () => {
